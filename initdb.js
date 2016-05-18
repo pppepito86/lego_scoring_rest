@@ -1,6 +1,23 @@
 var dbschemes = require('./dbschemes');
 var fs = require('fs');
 
+var loadMissions = function() {
+  fs.readFile('./data/missions.txt', function(err, data) {
+    if(err) console.error(err);
+
+    var rows = data.toString().split('\n');
+    rows.forEach(function(missionName, idx) {
+      if(missionName.length == 0) return;
+
+      new dbschemes.Mission({
+        id: idx+1,
+        name: missionName
+      }).save();
+    });
+  });
+}
+
+
 module.exports.loadDataToMongo = function () {
   var teamData = require('./data/teams.json');
   var saveMatch = function (currMatch, currentTeamId) {
@@ -43,6 +60,9 @@ module.exports.loadDataToMongo = function () {
     });
   });
 
+  dbschemes.Mission.remove({}, function() {
+    loadMissions();
+  });
 }
 
 

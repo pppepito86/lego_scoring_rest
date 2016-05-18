@@ -6,31 +6,13 @@ var mongoose = require('mongoose');
 var url = 'mongodb://localhost:27017/lego';
 var initdb = require('./initdb');
 var dbschemes = require('./dbschemes');
+var tablesRouter = require('./tables.js');
+var missionsRouter = require('./missions.js');
 
 mongoose.connect(url);
 
-app.get('/tables', function(req, res) {
-  dbschemes.Match
-  .find({})
-  .sort({id: 1})
-  .populate('team')
-  .exec(function (err, r){
-    res.type('application/json');
-    res.send(r);
-  });
-});
-
-
-app.get('/tables/:id', function(req, res) {
-  dbschemes.Match
-  .find({table: req.params.id})
-  .sort({id: 1})
-  .populate('team')
-  .exec(function (err, r){
-    res.type('application/json');
-    res.send(r);
-  });
-});
+app.use('/tables', tablesRouter)
+app.use('/missions', missionsRouter)
 
 app.get('/teams', function(req, res) {
   res.type('application/json'); // set content-type

@@ -18,8 +18,16 @@ var matchSchema = Schema({
   round: Number
 });
 
+var missionSchema = Schema({
+  id: {type: Number, unique: true, required: true},
+  name: String
+});
+
 module.exports.teamSchema = teamSchema;
 module.exports.matchSchema = matchSchema;
+module.exports.missionSchema = missionSchema;
+
 module.exports.Team = mongoose.model('Team', teamSchema);
 module.exports.Match = mongoose.model('Match', matchSchema);
+module.exports.Mission = mongoose.model('Mission', missionSchema);
 
