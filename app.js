@@ -9,6 +9,29 @@ var dbschemes = require('./dbschemes');
 
 mongoose.connect(url);
 
+app.get('/tables', function(req, res) {
+  dbschemes.Match
+  .find({})
+  .sort({id: 1})
+  .populate('team')
+  .exec(function (err, r){
+    res.type('application/json');
+    res.send(r);
+  });
+});
+
+
+app.get('/tables/:id', function(req, res) {
+  dbschemes.Match
+  .find({table: req.params.id})
+  .sort({id: 1})
+  .populate('team')
+  .exec(function (err, r){
+    res.type('application/json');
+    res.send(r);
+  });
+});
+
 app.get('/teams', function(req, res) {
   res.type('application/json'); // set content-type
   res.send(teamData); // send text response
@@ -28,12 +51,7 @@ app.get('/test/:id', function(req, res) {
 });
 
 app.get('/*', function(req, res) {
-  var kasapin40 = new Team({id: "1000", name: "KASAPIN40"});
-  kasapin40.save(function(err, tr) {
-    if(err) res.send(err);
-  });
-  //res.type('text/plain'); // set content-type
-  //res.send('i am a beautiful butterfly'); // send text response
+  res.status(404).send("Page Not found");
 });
 
 app.listen(8085);

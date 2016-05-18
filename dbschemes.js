@@ -13,7 +13,7 @@ var matchSchema = Schema({
   table: Number,
   team: {
     type: Schema.ObjectId,
-    ref: 'teams'
+    ref: 'Team'
   },
   round: Number
 });
