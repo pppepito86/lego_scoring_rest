@@ -3,6 +3,7 @@
   "description": "rest api for the live scoring of Robotics for Bulgaria festival",
   "version": "0.0.1",
   "dependencies": {
+    "async": "^2.0.0-rc.5",
     "express": "3.x",
     "mongodb": "^2.1.19",
     "mongoose": "^4.4.17"

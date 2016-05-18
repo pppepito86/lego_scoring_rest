@@ -4,37 +4,23 @@ var MongoClient = require('mongodb').MongoClient;
 var assert = require('assert');
 var mongoose = require('mongoose');
 var url = 'mongodb://localhost:27017/lego';
+var initdb = require('./initdb');
+var dbschemes = require('./dbschemes');
 
 mongoose.connect(url);
 
-var Schema = mongoose.Schema;
-var teamSchema = Schema({
-  id: { type: String, unique: true, required: true},
-  name: { type: String, required: true},
-  city: String,
-  school: String
+app.get('/teams', function(req, res) {
+  res.type('application/json'); // set content-type
+  res.send(teamData); // send text response
 });
 
-var matchScheme = Schema({
-  id: Number,
-  table: Number,
-  team: {
-    type: Schema.ObjectId,
-    ref: 'teams'
-  },
-  round: Number
+app.get('/load', function(req, res) {
+  initdb.loadDataToMongo();
+  res.type('text/plain'); // set content-type
+  res.send("ok");
 });
 
-var Team = mongoose.model('Team', teamSchema);
 
-MongoClient.connect(url, function(err, db) {
-  assert.equal(null, err);
-  console.log("Connected correctly to server.");
-
-  db.collection('test').insert({"pesho" : "marin"});
-
-  db.close();
-});
 
 app.get('/test/:id', function(req, res) {
   res.type('text/plain'); // set content-type
