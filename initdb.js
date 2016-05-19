@@ -40,7 +40,7 @@ module.exports.loadDataToMongo = function () {
       if(values.length < 5) continue;
       for (var tableId = 1; tableId < values.length; tableId++) {
         if(values[tableId] == 0) continue;
-        var currentTeamId = teamData[values[tableId]].id;
+        var currentTeamId = teamData[values[tableId]-1].id;
         var currMatch = new dbschemes.Match({
             id: i+1,
             table: tableId,

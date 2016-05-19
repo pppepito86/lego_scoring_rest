@@ -8,11 +8,13 @@ var initdb = require('./initdb');
 var dbschemes = require('./dbschemes');
 var tablesRouter = require('./tables.js');
 var missionsRouter = require('./missions.js');
+var scoresRouter = require('./livescore.js');
 
 mongoose.connect(url);
 
 app.use('/tables', tablesRouter)
 app.use('/missions', missionsRouter)
+app.use('/scores', scoresRouter)
 
 app.get('/teams', function(req, res) {
   res.type('application/json'); // set content-type
