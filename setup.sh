@@ -15,6 +15,8 @@ cd ~/nodejsserver
 git clone https://github.com/pppepito86/lego_scoring_rest.git --depth=1
 
 apt-get install npm -y
+
+cd lego_scoring_rest
 npm install
 
 mkdir -p /data/db
@@ -25,7 +27,6 @@ https://deb.nodesource.com/setup_6.x | sudo -E bash -
 apt-get install -y build-essential
 apt-get install nodejs-legacy
 
-cd lego_scoring_rest
 node app.js &
 
 curl http://localhost:8085/load
