@@ -10,8 +10,15 @@ router.get('/', function(req, res) {
   .populate('match')
   .populate('mission')
   .exec(function(err, r){
-    res.type('application/json');
-    res.send(r);
+    if(err) {
+      res.status(500);
+      res.type('application/json');
+      res.send(err);
+    } else {
+      res.status(200);
+      res.type('application/json');
+      res.send(r);
+    }
   });
 })
 
@@ -42,9 +49,16 @@ router.get('/match/:matchId/mission/:missionId/points/:points', function(req, re
     {'points': points},
     {upsert:true})
   .exec(function(err, score) {
-    console.log("score "+score);
-    res.type('application/json');
-    res.send(score);
+    if(err) {
+      res.status(500);
+      res.type('application/json');
+      res.send(err);
+    } else {
+      console.log("score " + score);
+      res.status(200);
+      res.type('application/json');
+      res.send(score);
+    }
   })
 });
 
@@ -54,8 +68,15 @@ router.get('/:id', function(req, res) {
   .sort({id: 1})
   .populate('team')
   .exec(function (err, r){
-    res.type('application/json');
-    res.send(r);
+    if(err) {
+      res.status(500);
+      res.type('application/json');
+      res.send(err);
+    } else {
+      res.status(200);
+      res.type('application/json');
+      res.send(r);
+    }
   });
 });
 
