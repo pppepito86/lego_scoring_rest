@@ -5,7 +5,7 @@ var loadMissions = function() {
   fs.readFile('./data/missions.txt', function(err, data) {
     if(err) console.error(err);
 
-    var rows = data.toString().split('\n');
+    var rows = data.toString().split(/\r|\n/);
     rows.forEach(function(missionName, idx) {
       if(missionName.length == 0) return;
 
