@@ -15,6 +15,23 @@ router.get('/', function(req, res) {
   });
 })
 
+router.get('/match/:matchId', function(req, res) {
+  var matchId = req.params.matchId;
+
+  dbschemes.Score
+    .find({'match': matchId})
+    .select({points:1})
+    .exec(function(err, data) {
+    var points = 0;
+    for (item in data) {
+      points += data[item].points;
+    }
+    res.type('application/json');
+    res.send("points:"+points);
+  })
+});
+
+
 router.get('/match/:matchId/mission/:missionId/points/:points', function(req, res) {
   var matchId = req.params.matchId;
   var missionId = req.params.missionId;
