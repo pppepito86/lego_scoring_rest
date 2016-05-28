@@ -1,0 +1,61 @@
+
+body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    background-color: #84c888;
+}
+
+.scoreTable {
+    margin: auto;
+    width: 60%;
+    background-color: #dbffd3;
+    margin-top: 50px;
+    height: 90%;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+}
+
+.teamName {
+    font-size: 58px;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.totalScore {
+    font-size: 58px;
+    text-align: center;
+
+}
+
+.missoins {
+    font-size: 24px;
+
+}
+.missoins td {
+
+}
+
+.scoresLeft {
+
+}
+
+.scoresRight {
+
+}
+
+.missionName {
+    border-right: thin solid;
+    border-right-color: black;
+    border-left: thin solid;
+    border-left-color: black;
+    border-bottom: none;
+    border-top: none;
+    padding-left: 25px;
+}
+
+.scores {
+    text-align: center;
+}
+
+.updated {
+    background-color: red;
+}

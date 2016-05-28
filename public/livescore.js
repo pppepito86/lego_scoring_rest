@@ -1,8 +1,6 @@
 angular.module('livescore', [])
 .controller('LivescoreController', function($scope, $http) {
-    $scope.teamName = "KASAPIN40";
 
-    var matchAid, matchBid;
     $scope.teams = [];
     $scope.points = [];
 
