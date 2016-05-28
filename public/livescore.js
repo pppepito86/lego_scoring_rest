@@ -1,8 +1,17 @@
 angular.module('livescore', [])
-.controller('LivescoreController', function($scope, $http) {
-
+.controller('LivescoreController', function($scope, $http, $location) {
+    var matchNumber = "1";
     $scope.teams = [];
     $scope.points = [];
+
+    var splittedUrl = $location.absUrl().split("?", 2);
+    if (splittedUrl.length > 1) {
+      matchNumber = splittedUrl[1];
+      splittedUrl = matchNumber.split("=", 2);
+      if (splittedUrl.length > 1) {
+        matchNumber = splittedUrl[1];
+      }
+    }
 
     function updateTableField(missionId, teamId, newValue) {
 
@@ -15,7 +24,7 @@ angular.module('livescore', [])
       }
     }
 
-    $http.get("/tables/match/1")
+    $http.get("/tables/match/"+matchNumber)
     		.then(function(response) {
           console.log(response);
           for(var i=0;i<response.data.length;i++){
