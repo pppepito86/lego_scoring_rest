@@ -14,6 +14,13 @@ body {
     padding-bottom: 50px;
 }
 
+.timer {
+    text-align: center;
+    font-size: 100px;
+    font-family: "Century Gothic";
+
+}
+
 .teamName {
     font-size: 58px;
     text-align: center;
@@ -23,7 +30,6 @@ body {
 .totalScore {
     font-size: 58px;
     text-align: center;
-
 }
 
 .missoins {
@@ -50,6 +56,7 @@ body {
     border-bottom: none;
     border-top: none;
     padding-left: 25px;
+    text-align: center;
 }
 
 .scores {

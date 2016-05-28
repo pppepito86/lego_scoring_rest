@@ -1,8 +1,34 @@
 angular.module('livescore', [])
-.controller('LivescoreController', function($scope, $http, $location) {
+
+    .filter('numberFixedLen', function () {
+        return function (n, len) {
+            var num = parseInt(n, 10);
+            len = parseInt(len, 10);
+            if (isNaN(num) || isNaN(len)) {
+                return n;
+            }
+            num = ''+num;
+            while (num.length < len) {
+                num = '0'+num;
+            }
+            return num;
+        };
+    })
+.controller('LivescoreController', function($scope, $http, $interval, $location) {
+
     var matchNumber = "1";
     $scope.teams = [];
     $scope.points = [];
+    $scope.mins = 2;
+    $scope.secs = 0;
+
+    $interval(function() {
+        if($scope.secs > 0) $scope.secs--;
+        else if($scope.mins > 0) {
+            $scope.mins--;
+            $scope.secs=59;
+        }
+    }, 1000);
 
     var splittedUrl = $location.absUrl().split("?", 2);
     if (splittedUrl.length > 1) {
@@ -31,6 +57,7 @@ angular.module('livescore', [])
             $scope.teams[i] = {};
             $scope.teams[i].match = response.data[i]["_id"];
             $scope.teams[i].name = response.data[i].team.name;
+            $scope.teams[i].total = 0;
           }
           console.log($scope.teams)
 	      });
