@@ -27,14 +27,20 @@ router.get('/match/:matchId', function(req, res) {
 
   dbschemes.Score
     .find({'match': matchId})
-    .select({points:1})
+    .populate('mission')
     .exec(function(err, data) {
     var points = 0;
     for (item in data) {
       points += data[item].points;
     }
+    //data.points = points;
+    responseJSON = {
+      detailed: data,
+      total: points
+    };
     res.type('application/json');
-    res.send("points:"+points);
+    //res.send("points:"+points);
+    res.send(responseJSON);
   })
 });
 

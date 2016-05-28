@@ -1,0 +1,35 @@
+<html ng-app="livescore">
+  <head>
+    <title>Livescore</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js" ></script>
+    <script src="livescore.js" ></script>
+  </head>
+
+  <body ng-controller="LivescoreController">
+    <h1>{{teamName}} <h1/>
+
+        <table width="100%">
+          <col width="30%">
+          <col width="20%">
+          <col width="20%">
+          <col width="30%">
+          <tr>
+            <td colspan="2">{{teams[0].name}}</td>
+            <td colspan="2">{{teams[1].name}}</td>
+          </tr>
+          <tr>
+            <td colspan="2">{{teams[0].total}}</td>
+            <td colspan="2">{{teams[1].total}}</td>
+          </tr>
+          
+          <tr ng-repeat="p in points">
+            <td colspan="1" ng-if="p.updated[0]" style="background-color: red;">{{p.team[0]}} </td>
+            <td colspan="1" ng-if="!p.updated[0]" >{{p.team[0]}} </td>
+            <td colspan="2" >{{p.name}} </td>
+            <td colspan="1" ng-if="p.updated[1]" style="background-color: red;">{{p.team[1]}} </td>
+            <td colspan="1" ng-if="!p.updated[1]" >{{p.team[1]}} </td>
+          </tr>
+
+    </table>
+  </body>
+</html>
