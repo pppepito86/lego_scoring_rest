@@ -6,7 +6,7 @@ body {
 
 .scoreTable {
     margin: auto;
-    width: 60%;
+    width: 70%;
     background-color: #dbffd3;
     margin-top: 50px;
     height: 90%;
@@ -65,4 +65,41 @@ body {
 
 .updated {
     background-color: red;
+    color: white;
+}
+
+.results-id {
+    text-align: center;
+}
+
+.results-name {
+    border-right: thin solid;
+    border-right-color: black;
+    border-left: thin solid;
+    border-left-color: black;
+    border-bottom: none;
+    padding-left: 20px;
+}
+
+.match {
+    text-align: center;
+}
+
+.best {
+    text-align: center;
+    border-left: thin solid;
+    border-left-color: black;
+}
+
+
+.resultsTable {
+
+    margin: auto;
+    width: 70%;
+    background-color: #dbffd3;
+    margin-top: 50px;
+    height: 90%;
+    margin-bottom: 50px;
+    padding-bottom: 50px;
+    padding-top: 50px;
 }

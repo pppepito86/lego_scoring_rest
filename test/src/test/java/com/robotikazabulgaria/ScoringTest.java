@@ -19,9 +19,9 @@ public class ScoringTest {
 	@Test
 	public void testAllMissions() {
 		List<Mission> missions= getMissions();
-		Table table = getTables().get(0);
+		Table table = getTables().get(4);
 		for (int i = 0; i < missions.size(); i++) {
-			addPoints(table.get_id(), missions.get(i).get_id(), String.valueOf(10+i));
+			addPoints(table.get_id(), missions.get(i).get_id(), String.valueOf(i));
 		}
 		assertThat(getPoints(table.get_id()), is(165));
 		addPoints(table.get_id(), missions.get(0).get_id(), String.valueOf(25));

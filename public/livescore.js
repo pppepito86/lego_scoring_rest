@@ -1,19 +1,18 @@
 angular.module('livescore', [])
-
-    .filter('numberFixedLen', function () {
-        return function (n, len) {
-            var num = parseInt(n, 10);
-            len = parseInt(len, 10);
-            if (isNaN(num) || isNaN(len)) {
-                return n;
-            }
-            num = ''+num;
-            while (num.length < len) {
-                num = '0'+num;
-            }
-            return num;
-        };
-    })
+.filter('numberFixedLen', function () {
+    return function (n, len) {
+        var num = parseInt(n, 10);
+        len = parseInt(len, 10);
+        if (isNaN(num) || isNaN(len)) {
+            return n;
+        }
+        num = ''+num;
+        while (num.length < len) {
+            num = '0'+num;
+        }
+        return num;
+    };
+})
 .controller('LivescoreController', function($scope, $http, $interval, $location) {
 
     var matchNumber = "1";
@@ -22,13 +21,49 @@ angular.module('livescore', [])
     $scope.mins = 2;
     $scope.secs = 0;
 
-    $interval(function() {
-        if($scope.secs > 0) $scope.secs--;
-        else if($scope.mins > 0) {
-            $scope.mins--;
-            $scope.secs=59;
+    $scope.keyMode = false;
+
+    var timerCountdowner;
+
+
+
+    function startTimer() {
+        $scope.mins = 2;
+        $scope.secs = 0;
+
+        if(!timerCountdowner) {
+            timerCountdowner = $interval(function () {
+                if ($scope.secs > 0) $scope.secs--;
+                else if ($scope.mins > 0) {
+                    $scope.mins--;
+                    $scope.secs = 59;
+                }
+            }, 1000);
         }
-    }, 1000);
+    }
+
+    $scope.keypress = function($event) {
+        var keyPressed = String.fromCharCode($event.keyCode);
+
+        if (keyPressed === "i") {
+            $scope.keyMode = !$scope.keyMode;
+        }
+
+        if($scope.keyMode) {
+            if (keyPressed === "n") {
+                window.location = "/livescore.html?" + (parseInt(matchNumber) + 1);
+            } else if (keyPressed === "p") {
+                window.location = "/livescore.html?" + (parseInt(matchNumber) - 1);
+            } else if (keyPressed === "s") {
+                startTimer();
+            } else if (keyPressed === "r") {
+                window.location = "/results.html?" + (parseInt(matchNumber));
+            }
+        }
+    }
+
+
+
 
     var splittedUrl = $location.absUrl().split("?", 2);
     if (splittedUrl.length > 1) {
@@ -40,7 +75,7 @@ angular.module('livescore', [])
     }
 
     function updateTableField(missionId, teamId, newValue) {
-
+        console.log(missionId);
       if ($scope.points[missionId].team[teamId] != newValue) {
         $scope.points[missionId].team[teamId] = newValue;
         $scope.points[missionId].updated[teamId] = true;

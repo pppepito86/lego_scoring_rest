@@ -5,7 +5,7 @@ var loadMissions = function() {
   fs.readFile('./data/missions.txt', function(err, data) {
     if(err) console.error(err);
 
-    var rows = data.toString().split(/\r|\n/);
+    var rows = data.toString().split(/\r\n|\n/);
     rows.forEach(function(missionName, idx) {
       if(missionName.length == 0) return;
 
@@ -30,6 +30,7 @@ module.exports.loadDataToMongo = function () {
   }
 
   var loadMatches = function() {
+
   fs.readFile('./data/schedule.txt', function(err, data) {
     if(err) console.error(err);
 
@@ -62,6 +63,9 @@ module.exports.loadDataToMongo = function () {
 
   dbschemes.Mission.remove({}, function() {
     loadMissions();
+  });
+
+  dbschemes.Score.remove({}, function(){
   });
 }
 

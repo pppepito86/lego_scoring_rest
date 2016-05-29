@@ -68,6 +68,45 @@ router.get('/match/:matchId/mission/:missionId/points/:points', function(req, re
   })
 });
 
+router.get('/results', function(req, res) {
+  dbschemes.Team
+      .find({})
+      .exec(function(teamErr, teamData) {
+        var results = {};
+        console.log(teamData);
+        for (teamItem in teamData) {
+          results[teamData[teamItem]._id] = {points:[]};
+          results[teamData[teamItem]._id].name = teamData[teamItem].name;
+        }
+
+        dbschemes.Score
+            .find({})
+            .sort({id: 1})
+            .populate('match')
+            .exec(function (err, data){
+              if(err) {
+                res.status(500);
+                res.type('application/json');
+                res.send(err);
+              } else {
+                for (item in data) {
+                  if (!results[data[item].match.team].points[parseInt(data[item].match.round)-1]) results[data[item].match.team].points[parseInt(data[item].match.round)-1]=0;
+                  results[data[item].match.team].points[parseInt(data[item].match.round)-1] += parseInt(data[item].points);
+                }
+
+                resultsArray = [];
+                for (entry in results) {
+                  resultsArray.push(results[entry]);
+                }
+                res.status(200);
+                res.type('application/json');
+                res.send(resultsArray);
+              }
+            });
+  });
+
+});
+
 router.get('/:id', function(req, res) {
   dbschemes.Match
   .find({table: req.params.id})

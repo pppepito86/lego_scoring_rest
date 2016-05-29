@@ -1,0 +1,43 @@
+<html ng-app="livescore">
+<head>
+    <title>Livescore</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <script src="results.js"></script>
+    <link rel="stylesheet" type="text/css" href="livescore.css">
+</head>
+
+<body ng-controller="ResultsController" ng-keypress="keypress($event)">
+
+<table class="resultsTable">
+    <col width="5%">
+    <col width="45%">
+    <col width="10%">
+    <col width="10%">
+    <col width="10%">
+    <col width="20%">
+
+    <tr>
+
+        <th class="results-id">#</th>
+        <th class="results-name">Име</th>
+        <th class="match">Мач 1</th>
+        <th class="match">Мач 2</th>
+        <th class="match">Мач 3</th>
+        <th class="best">Най-добро</th>
+    </tr>
+
+    <tr ng-repeat="entry in results | orderBy:'final':true ">
+        <td class="results-id">{{$index + 1}}</td>
+        <td class="results-name">{{entry.name}}</td>
+        <td class="match">{{entry.points[0]}}</td>
+        <td class="match">{{entry.points[1]}}</td>
+        <td class="match">{{entry.points[2]}}</td>
+        <td class="best">{{entry.final}}</td>
+    </tr>
+
+
+    <div style="position:absolute; left: 0; top: 0" ng-if="keyMode"> X </div>
+
+</table>
+</body>
+</html>

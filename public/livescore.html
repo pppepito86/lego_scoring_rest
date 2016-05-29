@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="livescore.css">
 </head>
 
-<body ng-controller="LivescoreController">
+<body ng-controller="LivescoreController" ng-keypress="keypress($event)">
 
 <table class="scoreTable">
     <col width="30%">
@@ -27,14 +27,16 @@
     </tr>
 
     <tr ng-repeat="p in points" class="missoins">
-        <td colspan="1" ng-if="p.updated[0]" class="updated" class="scoresLeft scores">{{p.team[0]}}</td>
+        <td colspan="1" ng-if="p.updated[0]" class="updated scoresLeft scores">{{p.team[0]}}</td>
         <td colspan="1" ng-if="!p.updated[0]" class="scoresLeft scores">{{p.team[0]}}</td>
 
         <td colspan="2" class="missionName">{{p.name}}</td>
 
-        <td colspan="1" ng-if="p.updated[1]" class="updated" class="scoresRight scores">{{p.team[1]}}</td>
+        <td colspan="1" ng-if="p.updated[1]" class="updated scoresRight scores">{{p.team[1]}}</td>
         <td colspan="1" ng-if="!p.updated[1]" class="scoresRight scores">{{p.team[1]}}</td>
     </tr>
+
+    <div style="position:absolute; left: 0; top: 0" ng-if="keyMode"> X </div>
 
 </table>
 </body>
