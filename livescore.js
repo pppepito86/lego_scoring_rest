@@ -73,7 +73,7 @@ router.get('/results', function(req, res) {
       .find({})
       .exec(function(teamErr, teamData) {
         var results = {};
-        console.log(teamData);
+        //console.log(teamData);
         for (teamItem in teamData) {
           results[teamData[teamItem]._id] = {points:[]};
           results[teamData[teamItem]._id].name = teamData[teamItem].name;

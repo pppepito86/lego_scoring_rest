@@ -12,6 +12,13 @@ var scoresRouter = require('./livescore.js');
 
 mongoose.connect(url);
 
+app.use(function logger(req, res, next) {
+  console.log(req.url);
+
+  next();
+  console.log(res.statusCode);
+});
+
 app.use(express.static(__dirname + '/public'));
 app.use('/tables', tablesRouter)
 app.use('/missions', missionsRouter)
