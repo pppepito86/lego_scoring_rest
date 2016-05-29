@@ -23,13 +23,13 @@ public class ScoringTest {
 		for (int i = 0; i < missions.size(); i++) {
 			addPoints(table.get_id(), missions.get(i).get_id(), String.valueOf(10+i));
 		}
-		assertThat(getPoints(table.get_id()), is("points:165"));
+		assertThat(getPoints(table.get_id()), is(165));
 		addPoints(table.get_id(), missions.get(0).get_id(), String.valueOf(25));
-		assertThat(getPoints(table.get_id()), is("points:180"));
+		assertThat(getPoints(table.get_id()), is(180));
 		addPoints(table.get_id(), missions.get(1).get_id(), String.valueOf(1));
-		assertThat(getPoints(table.get_id()), is("points:170"));
+		assertThat(getPoints(table.get_id()), is(170));
 		addPoints(table.get_id(), missions.get(0).get_id(), String.valueOf(55));
-		assertThat(getPoints(table.get_id()), is("points:200"));
+		assertThat(getPoints(table.get_id()), is(200));
 	}
 	
 	private void addPoints(String tableId, String missionId, String points) {
@@ -37,11 +37,10 @@ public class ScoringTest {
 		System.out.println(client.sendRequest());
 	}
 	
-	private String getPoints(String tableId) {
+	private int getPoints(String tableId) {
 		RestClient client = new RestClient(String.format("/scores/match/%s", tableId));
 		String result = client.sendRequest();
-		System.out.println(result);
-		return result;
+		return new Gson().fromJson(result, Points.class).getTotal();
 	}
 
 	@SuppressWarnings("unchecked")
