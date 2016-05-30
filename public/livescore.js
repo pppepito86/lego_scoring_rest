@@ -43,7 +43,8 @@ angular.module('livescore', [])
     }
 
     $scope.keypress = function($event) {
-        var keyPressed = String.fromCharCode($event.keyCode);
+        var keyCode = $event.keyCode != 0 ? $event.keyCode : $event.which;
+        var keyPressed = String.fromCharCode(keyCode);
 
         if (keyPressed === "i") {
             $scope.keyMode = !$scope.keyMode;
