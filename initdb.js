@@ -61,9 +61,9 @@ module.exports.loadDataToMongo = function () {
     });
   });
 
-  dbschemes.Mission.remove({}, function() {
-    loadMissions();
-  });
+  //dbschemes.Mission.remove({}, function() {
+    //loadMissions();
+  //});
 
   dbschemes.Score.remove({}, function(){
   });

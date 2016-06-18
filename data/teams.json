@@ -1,1 +1,24 @@
-[{"name":"kasapin40" ,"city":"sofia","school":"sap","id":"1000" },{"name":"Eco Robots" ,"city":"София","school":"108 СОУ \"Никола Беловеждов\"","id":"170910" },{"name":"SATBDS Robotics" ,"city":"Кърджали","school":"СОУ \"Отец Паисий\"","id":"260910" },{"name":"Ron1n" ,"city":"Шумен","school":"СОУ \"Сава Доброплодни\"","id":"21309" },{"name":"CyberBuilders" ,"city":"Лом","school":"ПГ \"Найден Геров\"","id":"320911" },{"name":"BRTE" ,"city":"Лом","school":"ПГ \"Найден Геров\"","id":"320910" },{"name":"UNTOUCHABLES 20" ,"city":"sofia","school":"20 ОУ \"Тодор Минков\"","id":"210910" },{"name":"ЛегоСАПарианци" ,"city":"Свищов","school":"СОУ \"Димитър Благоев\"","id":"280910" },{"name":"Tal'darim" ,"city":"Видин","school":"ПМГ „ Екзарх Антим I”","id":"190910" },{"name":"Robokids" ,"city":"Гоце Делчев","school":"I ОУ \"Св. Св. Кирил и Методий\"","id":"52809" },{"name":"burovci" ,"city":"Силистра","school":"ПГСУАУ \"Атанас Буров\"","id":"42409" },{"name":"QWERTY 1" ,"city":"Разград","school":"ОУ \"Васил Левски\"","id":"110610" },{"name":"The Unicorns" ,"city":"Панагюрище","school":"СОУ \"Нешо Бончев\"","id":"60210" },{"name":"РобоTitans" ,"city":"София","school":"125  СОУ","id":"270910" },{"name":"Робота в клас" ,"city":"Орешене","school":"ОУ \"Васил Левски\"","id":"361010" },{"name":"Technopiece" ,"city":"Видин","school":"ПГ \"Проф.д-р Асен Златаров\"","id":"11808" },{"name":"QWERTY 2" ,"city":"Разград","school":"ОУ \"Васил Левски\"","id":"110611" },{"name":"Extreme Balo machines" ,"city":"София","school":"СПГЕ \"Джон Атанасов\"","id":"290910" },{"name":"TheForce" ,"city":"Русе","school":"МГ \"Баба Тонка\"","id":"351010" },{"name":"RoboTeam" ,"city":"Русе","school":"МГ\"Баба Тонка\"","id":"351011" },{"name":"Robo-best" ,"city":"Враца","school":"СОУ \"Христо Ботев\"","id":"80210" },{"name":"Winners" ,"city":"Шумен","school":"ПГМЕТТ\"Христо Ботев\"","id":"100610" },{"name":"Dark Defenders" ,"city":"Варна","school":"Robopartans","id":"440001" },{"name":"MasterBricks" ,"city":"Varna","school":"Robopartnas","id":"440002" },{"name":"Robo Creators" ,"city":"Варна","school":"Robopartans","id":"440003" },{"name":"HiTechImperators" ,"city":"Варна","school":"Robopartans","id":"440004" }]
+[
+  {"name":"CyberBuilders" ,"city":"sofia","school":"sap","id":"1" },
+  {"name":"Tal'darim" ,"city":"София","school":"108 СОУ \"Никола Беловеждов\"","id":"170910" },
+  {"name":"Technopiece" ,"city":"Кърджали","school":"СОУ \"Отец Паисий\"","id":"260910" },
+  {"name":"Extreme Balo machines" ,"city":"Шумен","school":"СОУ \"Сава Доброплодни\"","id":"21309" },
+  {"name":"Ron1n" ,"city":"Лом","school":"ПГ \"Найден Геров\"","id":"320911" },
+  {"name":"Eco Robots" ,"city":"Лом","school":"ПГ \"Найден Геров\"","id":"320910" },
+  {"name":"RoboTeam" ,"city":"sofia","school":"20 ОУ \"Тодор Минков\"","id":"210910" },
+  {"name":"burovci" ,"city":"Свищов","school":"СОУ \"Димитър Благоев\"","id":"280910" },
+  {"name":"ЛегоСАПарианци" ,"city":"Видин","school":"ПМГ „ Екзарх Антим I”","id":"190910" },
+  {"name":"TheForce" ,"city":"Гоце Делчев","school":"I ОУ \"Св. Св. Кирил и Методий\"","id":"52809" },
+  {"name":"Robokids" ,"city":"Силистра","school":"ПГСУАУ \"Атанас Буров\"","id":"42409" },
+  {"name":"Winners" ,"city":"Разград","school":"ОУ \"Васил Левски\"","id":"110610" },
+  {"name":"The Unicorns" ,"city":"Панагюрище","school":"СОУ \"Нешо Бончев\"","id":"60210" },
+  {"name":"QWERTY 2" ,"city":"София","school":"125  СОУ","id":"270910" },
+  {"name":"Dark Defenders" ,"city":"Орешене","school":"ОУ \"Васил Левски\"","id":"361010" },
+  {"name":"Robo Creators" ,"city":"Видин","school":"ПГ \"Проф.д-р Асен Златаров\"","id":"11808" },
+  {"name":"SATBDS Robotics" ,"city":"Разград","school":"ОУ \"Васил Левски\"","id":"110611" },
+  {"name":"QWERTY 1" ,"city":"София","school":"СПГЕ \"Джон Атанасов\"","id":"290910" },
+  {"name":"Робота в клас" ,"city":"Русе","school":"МГ \"Баба Тонка\"","id":"351010" },
+  {"name":"NUR Bulgaria" ,"city":"Русе","school":"МГ\"Баба Тонка\"","id":"351011" },
+  {"name":"HiTechImperators" ,"city":"Враца","school":"СОУ \"Христо Ботев\"","id":"80210" },
+  {"name":"MasterBricks" ,"city":"Шумен","school":"ПГМЕТТ\"Христо Ботев\"","id":"100610" }
+]
